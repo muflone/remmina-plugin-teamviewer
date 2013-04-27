@@ -1,7 +1,7 @@
 Project name : Remmina Plugin TEAMVIEWER
 Remmina protocol plugin to open a TeamViewer connection.
 
-Copyright (C) 2011-2013 Fabio Castelli <muflone@vbsimple.net>
+Copyright (C) 2012-2013 Fabio Castelli <muflone@vbsimple.net>
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
