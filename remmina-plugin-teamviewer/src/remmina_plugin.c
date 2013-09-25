@@ -100,24 +100,18 @@ static gboolean remmina_plugin_open_connection(RemminaProtocolWidget *gp)
   gint i;
   
   gchar *option_str;
-  gchar *option_launcher;
 
   gpdata = (RemminaPluginData*) g_object_get_data(G_OBJECT(gp), "plugin-data");
   remminafile = remmina_plugin_service->protocol_plugin_get_file(gp);
 
   argc = 0;
-  option_launcher = GET_PLUGIN_STRING("launcher");
-  if (option_launcher == NULL) {
-    remmina_plugin_service->log_printf("[TEAMVIEWER] Invalid launcher, replacing it with 'teamviewer'\n");
-    option_launcher = g_strdup("teamviewer");
-  }
-  argv[argc++] = option_launcher;
+  argv[argc++] = strdup("teamviewer");
 
-  option_str = GET_PLUGIN_STRING("server");
-  // tvw_main skips the first argument so we're adding a fake argument in the first place
-  argv[argc++] = g_strdup("--");
+  // Some tvw_main skips the first argument so we're adding a fake argument in the first place
+  if (GET_PLUGIN_BOOLEAN("adddashes"))
+    argv[argc++] = g_strdup("--");
   argv[argc++] = g_strdup("-i");
-  argv[argc++] = option_str;
+  argv[argc++] = GET_PLUGIN_STRING("server");;
 
   option_str = GET_PLUGIN_PASSWORD("password");
   if (option_str)
@@ -131,8 +125,8 @@ static gboolean remmina_plugin_open_connection(RemminaProtocolWidget *gp)
   remmina_plugin_service->log_printf("[TEAMVIEWER] starting teamviewer\n");
   ret = g_spawn_async(NULL, argv, NULL, G_SPAWN_SEARCH_PATH,
     NULL, NULL, &gpdata->pid, &error);
-  remmina_plugin_service->log_printf("[TEAMVIEWER] started %s with pid %d\n", 
-    option_launcher, &gpdata->pid);
+  remmina_plugin_service->log_printf("[TEAMVIEWER] started with pid %d\n", 
+    &gpdata->pid);
 
   for (i = 0; i < argc; i++)
     g_free(argv[i]);
@@ -162,19 +156,11 @@ static void remmina_plugin_call_feature(RemminaProtocolWidget *gp, const Remmina
   return;
 }
 
-static gpointer launcher_list[] =
-{
-  "teamviewer", N_("Automatic TeamViewer"),
-  "teamviewer7", N_("TeamViewer 7"),
-  "teamviewer8", N_("TeamViewer 8"),
-  NULL
-};
-
 static const RemminaProtocolSetting remmina_plugin_basic_settings[] =
 {
   { REMMINA_PROTOCOL_SETTING_TYPE_SERVER, NULL, NULL, FALSE, NULL, NULL },
   { REMMINA_PROTOCOL_SETTING_TYPE_PASSWORD, NULL, NULL, FALSE, NULL, NULL },
-  { REMMINA_PROTOCOL_SETTING_TYPE_SELECT, "launcher", N_("Launcher"), FALSE, launcher_list, NULL },
+  { REMMINA_PROTOCOL_SETTING_TYPE_CHECK, "adddashes", N_("Add dashes as first argument"), FALSE, NULL, NULL },
   { REMMINA_PROTOCOL_SETTING_TYPE_END, NULL, NULL, FALSE, NULL, NULL }
 };
 
