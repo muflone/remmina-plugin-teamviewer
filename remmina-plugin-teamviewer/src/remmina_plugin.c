@@ -29,11 +29,13 @@ static RemminaPluginService *remmina_plugin_service = NULL;
 
 static void remmina_plugin_teamviewer_init(RemminaProtocolWidget *gp)
 {
+  TRACE_CALL("remmina_plugin_teamviewer_init");
   remmina_plugin_service->log_printf("[%s] remmina_plugin_teamviewer_init\n", PLUGIN_NAME);
 }
 
 static gboolean remmina_plugin_teamviewer_open_connection(RemminaProtocolWidget *gp)
 {
+  TRACE_CALL("remmina_plugin_teamviewer_open_connection");
   remmina_plugin_service->log_printf("[%s] remmina_plugin_teamviewer_open_connection\n", PLUGIN_NAME);
   #define GET_PLUGIN_STRING(value) \
     g_strdup(remmina_plugin_service->file_get_string(remminafile, value))
@@ -91,6 +93,7 @@ static gboolean remmina_plugin_teamviewer_open_connection(RemminaProtocolWidget 
 
 static gboolean remmina_plugin_teamviewer_close_connection(RemminaProtocolWidget *gp)
 {
+  TRACE_CALL("remmina_plugin_teamviewer_close_connection");
   remmina_plugin_service->log_printf("[%s] remmina_plugin_teamviewer_close_connection\n", PLUGIN_NAME);
   remmina_plugin_service->protocol_plugin_emit_signal(gp, "disconnect");
   return FALSE;
@@ -126,6 +129,7 @@ static RemminaProtocolPlugin remmina_plugin =
 
 G_MODULE_EXPORT gboolean remmina_plugin_entry(RemminaPluginService *service)
 {
+  TRACE_CALL("remmina-plugin-teamviewer::remmina_plugin_entry");
   remmina_plugin_service = service;
 
   if (!service->register_plugin((RemminaPlugin *) &remmina_plugin))
