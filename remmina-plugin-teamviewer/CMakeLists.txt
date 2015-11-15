@@ -22,8 +22,8 @@ set(REMMINA_PLUGIN_SRCS
 )
 add_library(remmina-plugin-teamviewer ${REMMINA_PLUGIN_SRCS})
 set_target_properties(remmina-plugin-teamviewer PROPERTIES PREFIX "")
-include_directories(${GTK_INCLUDE_DIRS})
 include_directories(${CMAKE_SOURCE_DIR}/remmina-plugins)
+target_link_libraries(remmina-plugin-teamviewer ${REMMINA_COMMON_LIBRARIES})
 
 install(TARGETS remmina-plugin-teamviewer DESTINATION ${REMMINA_PLUGINDIR})
 
