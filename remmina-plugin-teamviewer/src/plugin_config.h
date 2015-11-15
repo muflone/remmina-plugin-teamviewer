@@ -24,6 +24,6 @@
 
   #define PLUGIN_NAME        "TEAMVIEWER"
   #define PLUGIN_DESCRIPTION "TEAMVIEWER - Launch a TeamViewer connection"
-  #define PLUGIN_VERSION     "1.1.1.0"
+  #define PLUGIN_VERSION     "1.2.0.0"
   #define PLUGIN_APPICON     "remmina-teamviewer"
 #endif
