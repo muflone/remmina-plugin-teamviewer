@@ -27,14 +27,14 @@
 
 static RemminaPluginService *remmina_plugin_service = NULL;
 
-static void remmina_plugin_init(RemminaProtocolWidget *gp)
+static void remmina_plugin_teamviewer_init(RemminaProtocolWidget *gp)
 {
-  remmina_plugin_service->log_printf("[%s] remmina_plugin_init\n", PLUGIN_NAME);
+  remmina_plugin_service->log_printf("[%s] remmina_plugin_teamviewer_init\n", PLUGIN_NAME);
 }
 
-static gboolean remmina_plugin_open_connection(RemminaProtocolWidget *gp)
+static gboolean remmina_plugin_teamviewer_open_connection(RemminaProtocolWidget *gp)
 {
-  remmina_plugin_service->log_printf("[%s] remmina_plugin_open_connection\n", PLUGIN_NAME);
+  remmina_plugin_service->log_printf("[%s] remmina_plugin_teamviewer_open_connection\n", PLUGIN_NAME);
   #define GET_PLUGIN_STRING(value) \
     g_strdup(remmina_plugin_service->file_get_string(remminafile, value))
   #define GET_PLUGIN_BOOLEAN(value) \
@@ -89,14 +89,14 @@ static gboolean remmina_plugin_open_connection(RemminaProtocolWidget *gp)
   return FALSE;
 }
 
-static gboolean remmina_plugin_close_connection(RemminaProtocolWidget *gp)
+static gboolean remmina_plugin_teamviewer_close_connection(RemminaProtocolWidget *gp)
 {
-  remmina_plugin_service->log_printf("[%s] remmina_plugin_close_connection\n", PLUGIN_NAME);
+  remmina_plugin_service->log_printf("[%s] remmina_plugin_teamviewer_close_connection\n", PLUGIN_NAME);
   remmina_plugin_service->protocol_plugin_emit_signal(gp, "disconnect");
   return FALSE;
 }
 
-static const RemminaProtocolSetting remmina_plugin_basic_settings[] =
+static const RemminaProtocolSetting remmina_plugin_teamviewer_basic_settings[] =
 {
   { REMMINA_PROTOCOL_SETTING_TYPE_SERVER, NULL, NULL, FALSE, NULL, NULL },
   { REMMINA_PROTOCOL_SETTING_TYPE_PASSWORD, NULL, NULL, FALSE, NULL, NULL },
@@ -113,13 +113,13 @@ static RemminaProtocolPlugin remmina_plugin =
   PLUGIN_VERSION,
   PLUGIN_APPICON,
   PLUGIN_APPICON,
-  remmina_plugin_basic_settings,
+  remmina_plugin_teamviewer_basic_settings,
   NULL,
   REMMINA_PROTOCOL_SSH_SETTING_NONE,
   NULL,
-  remmina_plugin_init,
-  remmina_plugin_open_connection,
-  remmina_plugin_close_connection,
+  remmina_plugin_teamviewer_init,
+  remmina_plugin_teamviewer_open_connection,
+  remmina_plugin_teamviewer_close_connection,
   NULL,
   NULL
 };
