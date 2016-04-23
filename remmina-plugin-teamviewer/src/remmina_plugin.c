@@ -134,7 +134,8 @@ static RemminaProtocolPlugin remmina_plugin =
   remmina_plugin_teamviewer_close_connection,   // Plugin close connection
   NULL,                                         // Query for available features
   NULL,                                         // Call a feature
-  NULL                                          // Send a keystroke
+  NULL,                                         // Send a keystroke
+  NULL                                          // Capture screenshot
 };
 
 G_MODULE_EXPORT gboolean remmina_plugin_entry(RemminaPluginService *service)
