@@ -19,11 +19,9 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef __PLUGIN_CONFIG_H
-  #define __PLUGIN_CONFIG_H
+#pragma once
 
-  #define PLUGIN_NAME        "TEAMVIEWER"
-  #define PLUGIN_DESCRIPTION "TEAMVIEWER - Launch a TeamViewer connection"
-  #define PLUGIN_VERSION     "1.2.3.0"
-  #define PLUGIN_APPICON     "remmina-teamviewer"
-#endif
+#define PLUGIN_NAME        "TEAMVIEWER"
+#define PLUGIN_DESCRIPTION "TEAMVIEWER - Launch a TeamViewer connection"
+#define PLUGIN_VERSION     "1.3.0.0"
+#define PLUGIN_APPICON     "remmina-teamviewer"
