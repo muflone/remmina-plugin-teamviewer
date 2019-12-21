@@ -1,10 +1,10 @@
 # Remmina Plugin TEAMVIEWER
 
-**Author**: Fabio Castelli (Muflone) <muflone@vbsimple.net>
+**Author**: Fabio Castelli (Muflone) <muflone@muflone.com>
 
 **Home page**: http://www.muflone.com/remmina-plugin-teamviewer/
 
-**Copyright**: 2013-2016 Fabio Castelli (Muflone)
+**Copyright**: 2013-2019 Fabio Castelli (Muflone)
 
 **License**: GPL-2+
 

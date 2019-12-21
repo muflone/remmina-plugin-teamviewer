@@ -1,7 +1,7 @@
 #     Project: Remmina Plugin TEAMVIEWER
 # Description: Remmina protocol plugin to launch a TeamViewer connection.
-#      Author: Fabio Castelli (Muflone) <muflone@vbsimple.net>
-#   Copyright: 2012-2016 Fabio Castelli (Muflone)
+#      Author: Fabio Castelli (Muflone) <muflone@muflone.com>
+#   Copyright: 2012-2019 Fabio Castelli (Muflone)
 #     License: GPL-2+
 #
 # This program is free software; you can redistribute it and/or modify
