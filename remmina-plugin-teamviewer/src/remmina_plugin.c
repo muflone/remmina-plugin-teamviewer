@@ -21,7 +21,6 @@
 
 #include "plugin_config.h"
 #include <remmina/remmina_plugin.h>
-#include <gtk/gtkx.h>
 
 typedef struct {
   GtkTextView *text_view;
